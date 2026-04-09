@@ -3,16 +3,18 @@
 declare global {
 	namespace App {
 		interface Platform {
-			env: Env
-			ctx: ExecutionContext
-			caches: CacheStorage
-			cf?: IncomingRequestCfProperties
+			server: Bun.Server<WebSocketData>
+			request: Request
 		}
 
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
 		// interface PageState {}
+	}
+
+	interface WebSocketData {
+		wrapped?: import('./lib/server/api/websocket').BunWebsocketWrapper
 	}
 }
 

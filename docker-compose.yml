@@ -16,8 +16,6 @@ services:
     networks:
       - trinity-network
     restart: unless-stopped
-    volumes:
-      - ./build:/app/build
     healthcheck:
       test:
         [

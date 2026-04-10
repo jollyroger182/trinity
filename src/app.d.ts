@@ -7,8 +7,11 @@ declare global {
 			request: Request
 		}
 
+		interface Locals {
+			userId?: string
+		}
+
 		// interface Error {}
-		// interface Locals {}
 		// interface PageData {}
 		// interface PageState {}
 	}

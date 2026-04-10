@@ -1,10 +1,13 @@
 import { RPCSession } from '$lib/server/api/api'
 import { BunWebsocketWrapper } from '$lib/server/api/websocket'
+import { db } from '$lib/server/db'
+import { sessions } from '$lib/server/db/schema'
 import type { Handle } from '@sveltejs/kit'
 import { newWebSocketRpcSession } from 'capnweb'
+import { eq } from 'drizzle-orm'
 
 export const handle: Handle = async ({ event, resolve }) => {
-	const { request } = event
+	const { request, cookies, locals } = event
 	const url = new URL(request.url)
 
 	if (
@@ -15,6 +18,18 @@ export const handle: Handle = async ({ event, resolve }) => {
 	) {
 		if (event.platform.server.upgrade(event.platform.request, { data: {} })) {
 			return new Response(null, { status: 101 })
+		}
+	}
+
+	const sessionId = cookies.get('sessionid')
+	if (sessionId) {
+		const session = await db.query.sessions.findFirst({ where: eq(sessions.id, sessionId) })
+		if (session) {
+			if (session.expiresAt.getTime() > Date.now()) {
+				locals.userId = session.userId
+			} else {
+				cookies.delete('sessionid', { path: '/', httpOnly: true, secure: true, sameSite: 'lax' })
+			}
 		}
 	}
 

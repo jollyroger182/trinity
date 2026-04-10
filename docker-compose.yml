@@ -49,6 +49,19 @@ services:
       timeout: 5s
       retries: 5
 
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    command: bun db:migrate
+    environment:
+      - DATABASE_URL=postgres://trinity_user:trinity_password@db:5432/trinity
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+
 networks:
   trinity-network:
     driver: bridge

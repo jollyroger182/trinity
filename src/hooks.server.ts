@@ -1,3 +1,4 @@
+import { dev } from '$app/environment'
 import { RPCSession } from '$lib/server/api/api'
 import { BunWebsocketWrapper } from '$lib/server/api/websocket'
 import { db } from '$lib/server/db'
@@ -28,7 +29,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 			if (session.expiresAt.getTime() > Date.now()) {
 				locals.userId = session.userId
 			} else {
-				cookies.delete('sessionid', { path: '/', httpOnly: true, secure: true, sameSite: 'lax' })
+				cookies.delete('sessionid', { path: '/', httpOnly: true, secure: !dev, sameSite: 'lax' })
 			}
 		}
 	}

@@ -1,0 +1,43 @@
+body {
+	max-width: 680px;
+	margin: 0 auto;
+	padding: 2rem 1.5rem;
+	color: #1a1a1a;
+	background-color: #fafaf8;
+	font-family: 'DM Sans', sans-serif;
+	line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+	font-family: Audiowide, sans-serif;
+}
+
+h2 {
+	font-weight: 500;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'Audiowide';
+	font-style: normal;
+	font-weight: 400;
+	src: url('./audiowide.woff2') format('woff2');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'DM Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url('./dm-sans.woff2') format('woff2');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'DM Sans';
+	font-style: italic;
+	font-weight: 400;
+	src: url('./dm-sans-italic.woff2') format('woff2');
+}

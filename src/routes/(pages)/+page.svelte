@@ -1,6 +1,11 @@
-<h1>Trinity</h1>
+<h1>
+	<span
+		style="background: linear-gradient(to right, #3b5bdb 0%, #3b5bdb 20%, #e03131 60%, #e03131 100%); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent"
+		>Trinity</span
+	>
+</h1>
 
-<p style="border-left: 3px solid currentColor; padding: 0.3rem 1.5rem; font-weight: bold;">
+<p style="border-left: 3px solid currentColor; padding: 0.3rem 1.5rem; font-weight: bold">
 	Make a game with <em>only</em> HTML + CSS + JS, earn prizes like mechanical keyboards, software subscriptions,
 	and domains!
 </p>
@@ -9,19 +14,22 @@
 
 <ul>
 	<li>
-		<a href="https://github.com/florisluiten/0hh1">0h h1</a>: One of my favorite logic games! Fill
-		in a board of red and blue tiles based on simple rules.
+		<a href="https://0hh1.com/">0h h1</a> (<a href="https://github.com/florisluiten/0hh1">GitHub</a
+		>): One of my favorite logic games! Fill in a board of red and blue tiles based on simple rules.
 	</li>
 	<li>
-		<a href="https://github.com/kubowania/2048">2048</a>: The famous sliding blocks game where you
-		merge numbers and reach high scores.
+		<a href="https://jollyy.dev/2048/">2048</a> (<a href="https://github.com/kubowania/2048"
+			>GitHub</a
+		>): The famous sliding blocks game where you merge numbers and reach high scores.
 	</li>
 	<li>
-		<a href="https://github.com/kubowania/pac-man">Pac-Man</a>: The classic arcade game.
+		<a href="https://jollyy.dev/pac-man/">Pac-Man</a> (<a
+			href="https://github.com/kubowania/pac-man">GitHub</a
+		>): The classic arcade game. This is a really basic version, but you can improve on it!
 	</li>
 </ul>
 
-<h2>Details</h2>
+<h2>How it works</h2>
 
 <p>
 	This is a <a href="https://hackclub.com">Hack Club</a> YSWS for high school-aged students. Here's how

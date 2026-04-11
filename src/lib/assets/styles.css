@@ -6,6 +6,7 @@ body {
 	background-color: #fafaf8;
 	font-family: 'DM Sans', sans-serif;
 	line-height: 1.7;
+	font-size: 18px;
 }
 
 h1,
@@ -14,8 +15,29 @@ h3 {
 	font-family: Audiowide, sans-serif;
 }
 
+h1 {
+	font-size: 3rem;
+}
+
 h2 {
 	font-weight: 500;
+}
+
+a,
+a:visited {
+	color: blue;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		color: #fafaf8;
+		background-color: #1a1a1a;
+	}
+
+	a,
+	a:visited {
+		color: lightblue;
+	}
 }
 
 @font-face {

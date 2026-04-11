@@ -1,6 +1,6 @@
 <h1>Trinity</h1>
 
-<p style="border-left: 3px solid black; padding: 0.3rem 1.5rem; font-weight: bold;">
+<p style="border-left: 3px solid currentColor; padding: 0.3rem 1.5rem; font-weight: bold;">
 	Make a game with <em>only</em> HTML + CSS + JS, earn prizes like mechanical keyboards, software subscriptions,
 	and domains!
 </p>
@@ -8,17 +8,17 @@
 <p>Examples include:</p>
 
 <ul>
-	<lI>
+	<li>
 		<a href="https://github.com/florisluiten/0hh1">0h h1</a>: One of my favorite logic games! Fill
 		in a board of red and blue tiles based on simple rules.
-	</lI>
+	</li>
 	<li>
 		<a href="https://github.com/kubowania/2048">2048</a>: The famous sliding blocks game where you
 		merge numbers and reach high scores.
 	</li>
-	<lI>
+	<li>
 		<a href="https://github.com/kubowania/pac-man">Pac-Man</a>: The classic arcade game.
-	</lI>
+	</li>
 </ul>
 
 <h2>Details</h2>

@@ -2,43 +2,36 @@
 	import { resolve } from '$app/paths'
 </script>
 
-<nav class="nav-right">
+<nav style="position: absolute; right: 1.5rem; z-index: 2">
 	<a href={resolve('/dashboard')} data-sveltekit-preload-data="off">Dashboard →</a>
 </nav>
 
-<h1>
-	<span class="gradient-text">Trinity</span>
-</h1>
+<div style="position: relative; font-size: 1.5em">
+	<div
+		style="height: calc(100vh - 2rem); display: flex; flex-direction: column; justify-content: center;"
+	>
+		<h1 style="margin: 0; font-size: 2em">
+			<span class="gradient-text">Trinity</span>
+		</h1>
 
-<p style="border-left: 3px solid currentColor; padding: 0.3rem 1.5rem; font-weight: bold">
-	Make a game with <em>only</em> HTML + CSS + JS (no libraries!), earn prizes like mechanical keyboards,
-	software subscriptions, and domains!
-</p>
+		<p style="border-left: 3px solid currentColor; padding: 0.3rem 1.5rem; font-weight: bold">
+			Make a game with <em>only</em> HTML + CSS + JS (no libraries!), earn prizes like mechanical keyboards,
+			software subscriptions, and domains!
+		</p>
+	</div>
 
-<p>Examples include:</p>
-
-<ul>
-	<li>
-		<a href="https://0hh1.com/">0h h1</a> (<a href="https://github.com/florisluiten/0hh1">GitHub</a
-		>): One of my favorite logic games! Fill in a board of red and blue tiles based on simple rules.
-	</li>
-	<li>
-		<a href="https://jollyy.dev/2048/">2048</a> (<a href="https://github.com/kubowania/2048"
-			>GitHub</a
-		>): The famous sliding blocks game where you merge numbers and reach high scores.
-	</li>
-	<li>
-		<a href="https://jollyy.dev/pac-man/">Pac-Man</a> (<a
-			href="https://github.com/kubowania/pac-man">GitHub</a
-		>): The classic arcade game. This is a really basic version, but you can improve on it!
-	</li>
-</ul>
+	<div
+		style="position: absolute; bottom: 2rem; left: 0; right: 0; text-align: center; font-size: 1rem"
+	>
+		Scroll to learn more...
+	</div>
+</div>
 
 <h2>How it works</h2>
 
 <p>
-	This is a <a href="https://hackclub.com">Hack Club</a> YSWS for high school-aged students. Here's how
-	you participate:
+	Trinity is a <a href="https://hackclub.com">Hack Club</a> YSWS for high school-aged students. Here's
+	how you participate:
 </p>
 
 <div class="step">
@@ -73,6 +66,28 @@
 	</p>
 </div>
 
+<h2>Examples</h2>
+
+<p>Some HTML/JS/CSS games include:</p>
+
+<ul>
+	<li>
+		<a href="https://0hh1.com/">0h h1</a> (<a href="https://github.com/florisluiten/0hh1">GitHub</a
+		>): One of my favorite logic games! Fill in a board of red and blue tiles based on simple rules.
+		(This did use a library, jQuery, though you can pretty easily remove it!)
+	</li>
+	<li>
+		<a href="https://jollyy.dev/2048/">2048</a> (<a href="https://github.com/kubowania/2048"
+			>GitHub</a
+		>): The famous sliding blocks game where you merge numbers and reach high scores.
+	</li>
+	<li>
+		<a href="https://jollyy.dev/pac-man/">Pac-Man</a> (<a
+			href="https://github.com/kubowania/pac-man">GitHub</a
+		>): The classic arcade game. This is a really basic version, but you can improve on it!
+	</li>
+</ul>
+
 <h2>FAQ</h2>
 
 <h3>Q: How does the token thing work?</h3>
@@ -91,6 +106,17 @@
 	with relatively simple technology. Your reviewer decides to give you a 1.1x technicality
 	multiplier and a 1.4x creativity multiplier. This means you'll get 3 green tokens + 3.3 red tokens
 	+ 4.2 blue tokens from your game, which you can then spend in the shop to buy prizes!
+</p>
+
+<p>
+	Prizes use multiple types of tokens, and the ratio depends on the type of prize. For example, a
+	Canva Pro subscription leans more towards the creative side, so it needs more blue tokens than
+	red!
+</p>
+
+<p>
+	If you have too many of one kind of token, you can also convert them. The caveat is, you lose half
+	your tokens in conversion (e.g., 2 blue => 1 red). Better plan towards your prize beforehand!
 </p>
 
 <h3>Q: What are the project requirements?</h3>

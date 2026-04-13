@@ -37,7 +37,6 @@ export const handle: Handle = async ({ event, resolve }) => {
 		}
 	}
 
-	console.log('ok??', url, locals, sessionId)
 	return resolve(event)
 }
 

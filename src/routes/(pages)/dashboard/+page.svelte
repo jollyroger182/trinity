@@ -1,16 +1,18 @@
 <script lang="ts">
 	import { goto } from '$app/navigation'
 	import { resolve } from '$app/paths'
-	import { createProject } from '$lib/client/api'
+	import { createProject, getHackatimeProjects } from '$lib/client/api'
+	import { formatTime } from '$lib/utils/formatting'
 	import { slide } from 'svelte/transition'
 
 	let { data } = $props()
 
 	// svelte-ignore state_referenced_locally
 	let projects = $state(data.projects!)
-
 	let creating = $state(false)
 	let createState = $state({ name: '', description: '', hackatimeProjects: [] })
+
+	let usedHackatimeProjects = $derived(new Set(projects.flatMap((p) => p.hackatimeProjects)))
 
 	async function submitCreate() {
 		const project = await createProject(createState)
@@ -48,11 +50,25 @@
 	<div class="form-card" style="margin-bottom: 1em" transition:slide={{ duration: 200 }}>
 		<input placeholder="Name" bind:value={createState.name} />
 		<textarea placeholder="Description" bind:value={createState.description}></textarea>
-		<select multiple bind:value={createState.hackatimeProjects}>
-			<option value="example">example</option>
-			<option value="placeholder">placeholder</option>
-		</select>
-		<div style="">
+		{#await getHackatimeProjects()}
+			<span>Loading Hackatime projects...</span>
+		{:then hackatimeProjects}
+			<div>
+				<select multiple bind:value={createState.hackatimeProjects}>
+					{#each hackatimeProjects as project (project.name)}
+						<option value={project.name} disabled={usedHackatimeProjects.has(project.name)}
+							>{project.name} ({formatTime(project.total_seconds)})</option
+						>
+					{/each}
+				</select>
+				<div style="color: var(--color-muted); font-size: 0.8em">
+					Ctrl/Cmd+Click to select multiple
+				</div>
+			</div>
+		{:catch}
+			<span>Failed to load Hackatime projects. Please reload the page.</span>
+		{/await}
+		<div>
 			<button class="btn-hover-slide" onclick={submitCreate}><span>Submit</span></button>
 			<button class="btn-hover-slide" onclick={() => (creating = false)}><span>Cancel</span></button
 			>
@@ -64,10 +80,11 @@
 	<div style="border: 3px solid var(--color-fg); padding: 0 1em; margin-bottom: 1em">
 		<h3 style="margin-bottom: 0; font-size: 1.3em">{project.name}</h3>
 
-		<p style="font-size: calc(var(--font-size) * 0.8)">
+		<p style="font-size: 0.8em; margin: 0.5em 0;">
 			Hackatime: {project.hackatimeProjects.join(', ') || 'none selected'}
 		</p>
-		<p>{project.description}</p>
+
+		<p style="margin-top: 0">{project.description}</p>
 	</div>
 {/each}
 

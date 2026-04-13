@@ -9,10 +9,16 @@ body {
 	font-size: var(--font-size);
 
 	--color-fg: #1a1a1a;
+	--color-muted: #8e8e8e;
 	--color-bg: #fafaf8;
 	--font-body: 'DM Sans', sans-serif;
 	--font-heading: Audiowide, sans-serif;
 	--font-size: 18px;
+}
+
+body,
+* {
+	box-sizing: content-box;
 }
 
 h1,
@@ -75,8 +81,34 @@ button {
 	font-size: calc(var(--font-size) * 0.8);
 }
 
+input:not([type]),
+input[type="text"],
+textarea,
+select[multiple] {
+	background: transparent;
+	border-width: 0 0 2px 2px;
+	border-style: solid;
+	border-color: var(--color-muted);
+	padding: 0.3em;
+	outline: none;
+	box-shadow: none;
+	transition: border-color 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select[multiple]:focus {
+	border-color: var(--color-fg);
+}
+
 textarea {
+	min-height: 2em;
+	height: 3em;
 	resize: vertical;
+}
+
+select {
+	width: 100%;
 }
 
 button {

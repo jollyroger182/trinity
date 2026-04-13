@@ -10,6 +10,11 @@ export async function createProject(params: CreateProject) {
 	return await mapProject(project)
 }
 
+export async function getHackatimeProjects() {
+	using user = api.getAuthedUser()
+	return (await user.getHackatimeProjects()).sort((a, b) => b.total_seconds - a.total_seconds)
+}
+
 export async function mapProject(
 	project: ReturnType<ReturnType<typeof api.getAuthedUser>['createProject']>,
 ) {

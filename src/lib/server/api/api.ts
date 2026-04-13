@@ -58,6 +58,25 @@ export class AuthedUser extends RpcTarget {
 			.returning()
 		return new OwnedProject(data)
 	}
+
+	async getHackatimeProjects() {
+		const token = this.user.hackatimeToken
+		if (!token) throw new Error('You have not linked your Hackatime yet')
+
+		const resp = await fetch('https://hackatime.hackclub.com/api/v1/authenticated/projects', {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		})
+		if (!resp.ok) {
+			console.error(`Hackatime fetching failed with status ${resp.status} for user ${this.user.id}`)
+			throw new Error('Failed to fetch projects from Hackatime')
+		}
+
+		const data = await resp.json()
+		const projects = data.projects as { name: string; total_seconds: number }[]
+		return projects.map((p) => ({ name: p.name, total_seconds: p.total_seconds }))
+	}
 }
 
 export class OwnedProject extends RpcTarget {

@@ -1,6 +1,7 @@
 import { relations } from 'drizzle-orm'
 import {
 	foreignKey,
+	index,
 	integer,
 	json,
 	pgEnum,
@@ -17,6 +18,7 @@ export const submissionStatus = pgEnum('submission_status', ['pending', 'rejecte
 export const users = pgTable('users', {
 	id: text('id').primaryKey(),
 	name: text('name').notNull(),
+	hackatimeToken: text('hackatime_token'),
 })
 
 export const userRelations = relations(users, ({ many }) => ({
@@ -53,7 +55,7 @@ export const projects = pgTable(
 		hackatimeProjects: json('hackatime_projects').$type<string[]>().default([]).notNull(),
 		createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
 	},
-	(table) => [unique().on(table.id, table.userId)],
+	(table) => [unique().on(table.id, table.userId), index().on(table.userId, table.createdAt)],
 )
 
 export const projectRelations = relations(projects, ({ one, many }) => ({
@@ -80,6 +82,7 @@ export const submissions = pgTable(
 			columns: [table.projectId, table.userId],
 			foreignColumns: [projects.id, projects.userId],
 		}),
+		index().on(table.projectId, table.createdAt),
 	],
 )
 

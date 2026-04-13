@@ -36,6 +36,13 @@
       "when": 1775824053886,
       "tag": "0004_slippery_firelord",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1776063350396,
+      "tag": "0005_small_banshee",
+      "breakpoints": true
     }
   ]
 }

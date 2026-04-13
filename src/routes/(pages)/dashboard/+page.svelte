@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { goto } from '$app/navigation'
 	import { resolve } from '$app/paths'
 	import { createProject } from '$lib/client/api'
 	import { slide } from 'svelte/transition'
 
 	let { data } = $props()
 
+	// svelte-ignore state_referenced_locally
 	let projects = $state(data.projects!)
 
 	let creating = $state(false)
@@ -29,9 +31,17 @@
 
 <h2 style="display: flex; align-items: center; flex-wrap: wrap">
 	<span style="flex: 1 0 0">Your projects</span>
-	<button class="btn-skewed btn-hover-slide" onclick={() => (creating = !creating)}
-		><span>➕ Create</span></button
-	>
+	{#if data.isHackatimeLinked}
+		<button class="btn-skewed btn-hover-slide" onclick={() => (creating = !creating)}
+			><span>➕ Create</span></button
+		>
+	{:else}
+		<button
+			class="btn-skewed btn-hover-slide"
+			onclick={() => goto(resolve('/auth/hackatime/redirect'))}
+			><span>🔗 Link Hackatime</span></button
+		>
+	{/if}
 </h2>
 
 {#if creating}

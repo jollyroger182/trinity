@@ -16,7 +16,11 @@ export const load: PageLoad = async () => {
 	}))
 
 	try {
-		return { name: await user.name, projects: await projects }
+		return {
+			name: await user.name,
+			projects: await projects,
+			isHackatimeLinked: await user.isHackatimeLinked,
+		}
 	} catch {
 		return goto(resolve('/auth/hca/redirect'))
 	}

@@ -34,6 +34,40 @@ a:visited {
 	color: blue;
 }
 
+nav {
+	display: flex;
+	margin-bottom: 2rem;
+}
+
+.nav-right {
+	justify-content: flex-end;
+}
+
+nav a,
+nav a:visited {
+	position: relative;
+	display: inline-block;
+	color: var(--color-fg);
+	text-decoration: none;
+}
+
+nav a::before {
+	position: absolute;
+	transition: transform 0.5s;
+	bottom: 4px;
+	left: 0;
+	right: 0;
+	content: '';
+	height: 1px;
+	background-color: var(--color-fg);
+	transform-origin: left;
+	transform: scaleX(0);
+}
+
+nav a:hover::before {
+	transform: scaleX(1);
+}
+
 input,
 textarea,
 button {

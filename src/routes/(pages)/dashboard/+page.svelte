@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths'
 	import { createProject } from '$lib/client/api'
 	import { slide } from 'svelte/transition'
 
@@ -16,6 +17,10 @@
 		creating = false
 	}
 </script>
+
+<nav>
+	<a href={resolve('/')} data-sveltekit-preload-data="off">← Home</a>
+</nav>
 
 <h1>Welcome, <span class="gradient-text">{data.name}!</span></h1>
 

@@ -1,3 +1,11 @@
+<script>
+	import { resolve } from '$app/paths'
+</script>
+
+<nav class="nav-right">
+	<a href={resolve('/dashboard')} data-sveltekit-preload-data="off">Dashboard →</a>
+</nav>
+
 <h1>
 	<span class="gradient-text">Trinity</span>
 </h1>
@@ -121,6 +129,14 @@
 <h3>Q: Can I submit multiple projects?</h3>
 
 <p>A: Yes!</p>
+
+<h2>Ready to start?</h2>
+
+<p>
+	Join the <a href="https://hackclub.com/slack">Hack Club Slack</a>, check out the
+	<a href="https://hackclub.enterprise.slack.com/archives/C0ASTVBQ8LR">#trinity-ysws</a> channel,
+	and create your projects <a href={resolve('/dashboard')}>on the dashboard</a>!
+</p>
 
 <style>
 	.step {

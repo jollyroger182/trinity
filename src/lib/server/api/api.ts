@@ -41,6 +41,10 @@ export class AuthedUser extends RpcTarget {
 		return this.user.name
 	}
 
+	get isHackatimeLinked() {
+		return !!this.user.hackatimeToken
+	}
+
 	async getProjects() {
 		const data = await db.query.projects.findMany({ where: eq(projects.userId, this.user.id) })
 		return data.map((p) => new OwnedProject(p))

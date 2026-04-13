@@ -1,4 +1,5 @@
 import { dev } from '$app/environment'
+import { resolve } from '$app/paths'
 import { EXTERNAL_URL, HCA_CLIENT_ID, HCA_CLIENT_SECRET } from '$env/static/private'
 import { verifyIdToken } from '$lib/server/auth'
 import { db } from '$lib/server/db/index'
@@ -62,5 +63,5 @@ export async function GET({ request, cookies }) {
 
 	cookies.set('sessionid', sessionId, { path: '/', httpOnly: true, secure: !dev, sameSite: 'lax' })
 
-	return redirect(307, '/')
+	return redirect(307, resolve('/dashboard'))
 }

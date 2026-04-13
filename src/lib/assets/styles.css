@@ -23,6 +23,10 @@ h2 {
 	font-weight: 500;
 }
 
+h3 {
+	font-size: 1.13em;
+}
+
 a,
 a:visited {
 	color: blue;

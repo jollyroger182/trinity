@@ -17,6 +17,7 @@ declare global {
 	}
 
 	interface WebSocketData {
+		userId?: string
 		wrapped?: import('./lib/server/api/websocket').BunWebsocketWrapper
 	}
 }

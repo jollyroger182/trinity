@@ -1,23 +1,5 @@
 <h1>
-	<span
-		style="background: linear-gradient(
-			90deg,
-			hsl(228deg 69% 55%) 0%,
-			hsl(250deg 60% 58%) 8%,
-			hsl(268deg 55% 54%) 17%,
-			hsl(285deg 50% 50%) 25%,
-			hsl(300deg 56% 45%) 33%,
-			hsl(312deg 68% 45%) 42%,
-			hsl(319deg 83% 44%) 50%,
-			hsl(323deg 100% 42%) 58%,
-			hsl(329deg 100% 44%) 67%,
-			hsl(334deg 100% 44%) 75%,
-			hsl(341deg 89% 47%) 83%,
-			hsl(350deg 78% 51%) 92%,
-			hsl(0deg 74% 54%) 100%
-		); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent"
-		>Trinity</span
-	>
+	<span class="gradient-text">Trinity</span>
 </h1>
 
 <p style="border-left: 3px solid currentColor; padding: 0.3rem 1.5rem; font-weight: bold">

@@ -9,18 +9,6 @@ import { eq } from 'drizzle-orm'
 
 export const handle: Handle = async ({ event, resolve }) => {
 	const { request, cookies, locals } = event
-	const url = new URL(request.url)
-
-	if (
-		request.headers.get('connection')?.toLowerCase().includes('upgrade') &&
-		request.headers.get('upgrade')?.toLowerCase() === 'websocket' &&
-		url.pathname === '/api' &&
-		event.platform?.server
-	) {
-		if (event.platform.server.upgrade(event.platform.request, { data: {} })) {
-			return new Response(null, { status: 101 })
-		}
-	}
 
 	const sessionId = cookies.get('sessionid')
 	if (sessionId) {
@@ -34,6 +22,22 @@ export const handle: Handle = async ({ event, resolve }) => {
 		}
 	}
 
+	const url = new URL(request.url)
+
+	if (
+		request.headers.get('connection')?.toLowerCase().includes('upgrade') &&
+		request.headers.get('upgrade')?.toLowerCase() === 'websocket' &&
+		url.pathname === '/api' &&
+		event.platform?.server
+	) {
+		if (
+			event.platform.server.upgrade(event.platform.request, { data: { userId: locals.userId } })
+		) {
+			return new Response(null, { status: 101 })
+		}
+	}
+
+	console.log('ok??', url, locals, sessionId)
 	return resolve(event)
 }
 
@@ -41,7 +45,7 @@ export const websocket: Bun.WebSocketHandler<WebSocketData> = {
 	open(ws) {
 		const wrapped = new BunWebsocketWrapper(ws)
 		ws.data.wrapped = wrapped
-		newWebSocketRpcSession(wrapped as unknown as WebSocket, new RPCSession())
+		newWebSocketRpcSession(wrapped as unknown as WebSocket, new RPCSession(ws.data.userId))
 	},
 	message(ws, message) {
 		ws.data.wrapped?.dispatchEvent(new MessageEvent('message', { data: message }))

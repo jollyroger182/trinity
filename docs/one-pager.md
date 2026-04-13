@@ -14,7 +14,7 @@ For the WS, instead of a flat prize of $5/hour, Trinity uses a token system with
 
 ## Prizes
 
-Tokens can be redeemed for prizes in the program shop. Since the average number of tokens per hour is 1 green + 1.25 red + 1.25 blue = 3.5 tokens, each token is worth ~$1.43. Each item in the shop will be assigned a price consisting of all three token types, with the ratio determined by the category of the prize; for example, a $120 Canva Pro subscription would require 25 green + 25 red + 35 blue tokens, and a $10 domain grant might be 4 green + 4 red tokens.
+Tokens can be redeemed for prizes in the program shop. Since the average number of tokens per hour is 1 green + 1.25 red + 1.25 blue = 3.5 tokens, each token is worth ~$1.43. Each item in the shop will be assigned a price consisting of all three token types, with the ratio determined by the category of the prize; for example, a $120 Canva Pro subscription would require 25 green + 25 red + 35 blue tokens, and a $10 domain grant might be 3 green + 2 red + 2 blue tokens.
 
 ## Marketing plan
 

@@ -2,25 +2,27 @@ body {
 	max-width: 680px;
 	margin: 0 auto;
 	padding: 2rem 1.5rem;
-	color: #1a1a1a;
-	background-color: #fafaf8;
-	font-family: 'DM Sans', sans-serif;
+	color: var(--color-fg);
+	background-color: var(--color-bg);
+	font-family: var(--font-body);
 	line-height: 1.7;
-	font-size: 18px;
+	font-size: var(--font-size);
+
+	--color-fg: #1a1a1a;
+	--color-bg: #fafaf8;
+	--font-body: 'DM Sans', sans-serif;
+	--font-heading: Audiowide, sans-serif;
+	--font-size: 18px;
 }
 
 h1,
 h2,
 h3 {
-	font-family: Audiowide, sans-serif;
+	font-family: var(--font-heading);
 }
 
 h1 {
 	font-size: 3rem;
-}
-
-h2 {
-	font-weight: 500;
 }
 
 h3 {
@@ -32,10 +34,88 @@ a:visited {
 	color: blue;
 }
 
+input,
+textarea,
+button {
+	font-family: var(--font-body);
+	font-size: calc(var(--font-size) * 0.8);
+}
+
+textarea {
+	resize: vertical;
+}
+
+button {
+	position: relative;
+	color: var(--color-fg);
+	border: 3px solid var(--color-fg);
+	background: transparent;
+	padding: 0.4rem 1rem;
+	cursor: pointer;
+}
+
+button>* {
+	display: inline-block;
+}
+
+.btn-skewed {
+	transform: skew(-17deg);
+}
+
+.btn-skewed>* {
+	transform: skew(17deg);
+}
+
+.btn-hover-slide {
+	overflow: hidden;
+	transition: color 0.3s ease;
+}
+
+.btn-hover-slide::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: var(--color-fg);
+	transition: left 0.3s ease-out;
+	z-index: -1;
+}
+
+.btn-hover-slide:hover {
+	color: var(--color-bg);
+}
+
+.btn-hover-slide:hover::before {
+	left: 0;
+}
+
+.gradient-text {
+	background: linear-gradient(90deg,
+			hsl(228deg 69% 55%) 0%,
+			hsl(250deg 60% 58%) 8%,
+			hsl(268deg 55% 54%) 17%,
+			hsl(285deg 50% 50%) 25%,
+			hsl(300deg 56% 45%) 33%,
+			hsl(312deg 68% 45%) 42%,
+			hsl(319deg 83% 44%) 50%,
+			hsl(323deg 100% 42%) 58%,
+			hsl(329deg 100% 44%) 67%,
+			hsl(334deg 100% 44%) 75%,
+			hsl(341deg 89% 47%) 83%,
+			hsl(350deg 78% 51%) 92%,
+			hsl(0deg 74% 54%) 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent
+}
+
 @media (prefers-color-scheme: dark) {
 	body {
-		color: #fafaf8;
-		background-color: #1a1a1a;
+		--color-fg: #fafaf8;
+		--color-bg: #1a1a1a;
 	}
 
 	a,

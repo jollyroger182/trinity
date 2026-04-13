@@ -94,7 +94,7 @@
 
 <style>
 	.form-card {
-		border: 2px solid #1a1a1a;
+		border: 2px solid var(--color-fg);
 		padding: 1rem 1.25rem;
 		display: flex;
 		flex-direction: column;

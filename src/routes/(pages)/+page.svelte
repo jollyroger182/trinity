@@ -6,11 +6,11 @@
 	<a href={resolve('/dashboard')} data-sveltekit-preload-data="off">Dashboard →</a>
 </nav>
 
-<div style="position: relative; font-size: 1.5em">
+<div style="position: relative; font-size: 1.3em">
 	<div
 		style="height: calc(100vh - 2rem); display: flex; flex-direction: column; justify-content: center;"
 	>
-		<h1 style="margin: 0; font-size: 2em">
+		<h1 style="margin: 0; font-size: 2.5em">
 			<span class="gradient-text">Trinity</span>
 		</h1>
 

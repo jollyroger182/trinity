@@ -86,6 +86,7 @@ input:not([type]),
 input[type="text"],
 textarea,
 select[multiple] {
+	color: var(--color-fg);
 	background: transparent;
 	border-width: 0 0 2px 2px;
 	border-style: solid;
